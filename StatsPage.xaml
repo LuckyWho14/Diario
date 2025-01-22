@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiarioPro.StatsPage"
+             Title="StatsPage">
+
+    <VerticalStackLayout Padding="30" BackgroundColor="#E6FFE6">
+
+        <!-- Título de la página -->
+        <Label
+                FontSize="24"
+                Text="Resumen semanal"
+                TextColor="#FF6FCF" />
+
+        <!-- Marco para mostrar los detalles del resumen semanal -->
+        <Frame
+            Padding="15" BackgroundColor="#FFE6F2"
+            CornerRadius="10" HeightRequest="200"
+            BorderColor="#FFDB6F">
+
+            <!-- Contenedor interno para los elementos del resumen -->
+            <VerticalStackLayout Spacing="40" VerticalOptions="Center">
+
+                <!-- Etiqueta que muestra el promedio de actividad física -->
+                <Label
+                    TextColor="#2FA84C"
+                    x:Name="promedioActividadLabel"
+                    FontSize="18"
+                    Text="Promedio actividad física: 0"/>
+
+                <!-- Barra de progreso que refleja el nivel promedio de actividad física -->
+                <ProgressBar
+                    BackgroundColor="#A8FFC2"
+                    ProgressColor="#2FA84C"
+                    x:Name="progresoSemanal"
+                    Progress="0"/>
+
+                <!-- Etiqueta que muestra el promedio de energía -->
+                <Label
+                    TextColor="#2FA84C"
+                    x:Name="promedioEnergiaLabel"
+                    FontSize="18"
+                    Text="Promedio energía: 0"/>
+            </VerticalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>

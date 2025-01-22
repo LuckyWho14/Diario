@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiarioPro.ListStatsPage"
+             Title="Historial de Registros">
+    <ScrollView>
+        <StackLayout Padding="20" BackgroundColor="#E6FFE6">
+            <!-- Botón para borrar todos los registros -->
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
+                <Button Text="Borrar Todos"
+                        BackgroundColor="#FF6FCF"
+                        TextColor="#E6FFE6"
+                        Clicked="LimpiarClicked"/>
+            </HorizontalStackLayout>
+
+            <!-- Lista de registros -->
+            <ListView x:Name="listViewRegistros">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!-- Marco que envuelve los registros con estilo -->
+                            <Frame
+                                Margin="5"
+                                Padding="10" BackgroundColor="#FFE6F2" 
+                                CornerRadius="5" BorderColor="#FFDB6F">
+                                
+                                <!-- Con este layout quedan mejor estructurados los elementos -->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <!-- Columna para la fecha -->
+                                        <ColumnDefinition Width="*" />
+                                        <!-- Columna para los comentarios -->
+                                        <ColumnDefinition Width="*" />
+                                        <!-- Columna para actividad física -->
+                                        <ColumnDefinition Width="*" />
+                                        <!-- Columna para nivel de energía -->
+                                        <ColumnDefinition Width="Auto" />
+                                        <!-- Columna para el botón de eliminar -->
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Fecha -->
+                                    <Label FontSize="14" Text="{Binding Fecha, StringFormat='Fecha: {0:dd/MM/yyyy}'}" 
+                                           TextColor="#2FA84C" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" />
+
+                                    <!-- Comentarios -->
+                                    <Label FontSize="14" Text="{Binding Nota, StringFormat='Comentarios: {0}'}" 
+                                            TextColor="#2FA84C" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" />
+
+                                    <!-- Actividad física -->
+                                    <Label FontAttributes="Bold" FontSize="18" TextColor="#2FA84C" 
+                                           Text="{Binding lvlActiv, StringFormat='Actividad física: {0}'}" 
+                                           Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" />
+
+                                    <!-- Nivel de Energía -->
+                                    <Label FontAttributes="Bold" FontSize="18" TextColor="#2FA84C" 
+                                           Text="{Binding lvlEnerg, StringFormat='Nivel de Energía: {0}'}" 
+                                           Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center" />
+
+                                    <!-- Botón de eliminar -->
+                                    <Button TextColor="#B24C93" BackgroundColor="#4CFF6F" Clicked="Button_Clicked" 
+                                            CommandParameter="{Binding .}" FontSize="10" Text="Eliminar" 
+                                            Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center" />
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

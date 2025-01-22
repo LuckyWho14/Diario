@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiarioPro.RegistroPage"
+             Title="RegistroPage">
+    <ScrollView>
+        <!-- StackLayout organiza los elementos de manera vertical -->  
+        <StackLayout Padding="30" Spacing="20" BackgroundColor="#E6FFE6">
+
+            <!-- Etiqueta de "Fecha" -->
+            <Label FontSize="18" Text="Fecha:" 
+               TextColor="#FF6FCF" FontAttributes="Bold"/>
+            <!-- DatePicker para seleccionar una fecha -->
+            <DatePicker x:Name="datePicker" Format="dd/MM/yyyy" 
+                    TextColor="#2FA84C" BackgroundColor="#FFE6F2" />
+
+            <!-- Etiqueta de "¿Cómo te sientes hoy?" -->
+            <Label FontSize="18" Text="¿Cómo te sientes hoy?:" 
+               TextColor="#FF6FCF" FontAttributes="Bold"/>
+            
+            <!-- Editor para ingresar notas (comentarios o sentimientos) -->
+            <Editor
+            PlaceholderColor="#B24C93" BackgroundColor="#FFE6F2"
+            TextColor="#2FA84C" x:Name="editorNota"
+            HeightRequest="100" Placeholder="Escribe tus pensamientos..." />
+
+            <!-- Etiqueta de "Nivel de actividad física" -->
+            <Label FontSize="18" Text="Nivel de actividad física:" 
+               TextColor="#FF6FCF" FontAttributes="Bold"/>
+            
+            <!-- Slider para seleccionar el nivel de actividad física -->
+            <Slider
+            BackgroundColor="#FFE6F2" MaximumTrackColor="#FFC2E4"
+            MinimumTrackColor="#B24C93" x:Name="activitySlider"
+            Maximum="10" Minimum="0"
+            ValueChanged="activitySlider_ValueChanged" />
+
+            <!-- Barra de progreso que muestra el progreso semanal -->
+            <ProgressBar
+            x:Name="progresoSemanal"
+            HeightRequest="20" Progress="0"
+            BackgroundColor="#A8FFC2" ProgressColor="#2FA84C" />
+
+            <!-- Bloque para el nivel de energia -->
+            <HorizontalStackLayout Spacing="20">
+                <!-- Etiqueta de "Nivel de energía" -->
+                <Label FontSize="18" Text="Nivel de energía: " 
+                   TextColor="#FF6FCF" FontAttributes="Bold"/>
+                
+                <!-- Stepper para seleccionar el nivel de energía (incrementar o decrementar) -->
+                <Stepper
+                BackgroundColor="#2FA84C" x:Name="energyStepper"
+                Maximum="5" Minimum="1"
+                ValueChanged="energyStepper_ValueChanged"/>
+                
+                <!-- Label que muestra el valor actual del Stepper -->
+                <Label
+                TextColor="#FF6FCF" x:Name="energyValueLabel"
+                FontSize="18" Text="{Binding Source={x:Reference energyStepper},Path=Value}"/>
+            </HorizontalStackLayout>
+
+            <!-- Botón para guardar el registro -->
+            <Button
+            TextColor="#2FA84C"
+            BackgroundColor="#FFE6F2" Clicked="Button_Clicked"
+            HorizontalOptions="EndAndExpand" Text="Guardar Registro"/>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

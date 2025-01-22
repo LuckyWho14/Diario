@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiarioPro.MainPage"
+             Title="Inicio">
+
+    <!-- Contenedor principal con color de fondo y espacio interno -->
+    <StackLayout Padding="20" BackgroundColor="#E6FFE6">
+        <!-- Frame con bordes redondeados y color de fondo -->
+        <Frame Padding="15" BackgroundColor="#FFE6F2" CornerRadius="10" HorizontalOptions="CenterAndExpand" HeightRequest="300" BorderColor="#FFDB6F">
+
+            <!-- Layout vertical que organiza los elementos con espacio entre ellos -->
+            <VerticalStackLayout Spacing="50" VerticalOptions="CenterAndExpand">
+
+                <!-- Etiqueta de bienvenida con texto grande y en negrita -->
+                <Label x:Name="welcomeLbl" FontSize="40" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#FF6FCF"/>
+
+                <!-- Etiqueta con mensaje de bienvenida -->
+                <Label FontSize="20" Text="¡Bienvenido a tu Diario de Bienestar!" TextColor="#2FA84C"/>
+
+                <!-- Pequeño comentario, para animar al usuario a hacer un seguimiento diario -->
+                <Label FontSize="16" Text="Registra cómo te sientes y tus actividades diarias para mejorar tu bienestar." TextColor="#2FA84C"/>
+            </VerticalStackLayout>
+        </Frame>
+
+    </StackLayout>
+
+</ContentPage>
